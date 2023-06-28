@@ -5,7 +5,7 @@ let obj1 = {
     subj: 122,
 }
 
-function sayHello(greet){
+function greetPlease(greet){
     return 'hello ' + this.name +" "+greet
 }
 
