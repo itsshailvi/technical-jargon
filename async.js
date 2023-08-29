@@ -24,7 +24,7 @@ for(let i=0; i<=5; i++) {
     console.log(i);
   }, 1000);
 }
-
+//with var
 output : 
 6
 6
@@ -32,7 +32,8 @@ output :
 6
 6
 6
-  
+
+//with let
 (let)
 for(let i=0; i<=5; i++) {
   setTimeout(() => {
@@ -72,3 +73,33 @@ outside setTimeout1
 // after 2000ms blocking statement inside parent2 scope inside parent2 setTimeout2 
 // after 2000ms blocking statement inside parent2 scope inside child setTimeout 
 // after 3000ms blocking statement inside child scope
+
+
+//Blocking and unblocking statements 
+“Blocking” statements prevent the next statement from running until its execution finishes. 
+Functions like setTimeout(), setInterval(), promises, network calls, events, and all other 
+asynchronous calls are non-blocking statements.
+
+let nums = [1,2,3];
+console.log("Blocking statement 1");
+setTimeout(() => {
+  console.log(nums.length);
+  console.log("non-blocking");
+},1000)
+nums.forEach((num) => {
+  console.log(num);
+});
+setTimeout(() => {
+  console.log("after 0 secs");
+}, 0);
+console.log("blocking");
+
+output :
+Blocking statement 1
+1
+2
+3
+blocking
+after 0 secs
+3
+non-blocking
