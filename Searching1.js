@@ -5,3 +5,12 @@
 //K = 10
 //Output: 5
 //Explanation: 10 is found at index 5.
+
+function findKIndex (arr, k){
+  let arr = arr.sort();
+  for(let i = 0 ; i < arr.length ; i++ ) {
+    if(arr[i] === k){
+      return i
+    }
+  }
+}
