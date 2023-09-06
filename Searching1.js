@@ -4,7 +4,7 @@
 //A[] = {5,6,7,8,9,10,1,2,3}
 //K = 10
 //Output: 5
-//Explanation: 10 is found at index 5.
+//Explanation: 10 is found at index 5.....
 
 function findKIndex (arr, k){
   let arr = arr.sort();
