@@ -14,3 +14,9 @@ b) console.log(`Twentyfour is ${a + b} andnot ${2 * a + b}.`);
 a) let classes = "start screen";
 classes += isLargeScreen() ? "" : item.isCollapsed ? " icon-expander" : " icon-collapser";
 b) const classes = `start screen ${isLargeScreen() ? "" : item.isCollapsed ? "icon-expander" : "icon-collapser"}`;
+c) const classes = `start screen ${isLargeScreen() ? "" : `icon-${item.isCollapsed ? "expander" : "collapser"}`}`;
+
+4.To escape a backtick
+a) `\`` === "`"; // true
+5.To use dollar sign 
+a) `\${1}` === "${1}"; // true
