@@ -10,4 +10,7 @@ const b = 4;
 a) console.log("Twentyfour is " + (a + b) + " and\nnot " + (2 * a + b) + ".");
 b) console.log(`Twentyfour is ${a + b} andnot ${2 * a + b}.`);
 
-
+3.Nesting templates
+a) let classes = "start screen";
+classes += isLargeScreen() ? "" : item.isCollapsed ? " icon-expander" : " icon-collapser";
+b) const classes = `start screen ${isLargeScreen() ? "" : item.isCollapsed ? "icon-expander" : "icon-collapser"}`;
