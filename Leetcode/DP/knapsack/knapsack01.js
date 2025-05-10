@@ -17,22 +17,26 @@ function knapsack01(weights, values, W, n) {
 }
 
 // memoization 
-function knapsack01Memo(weights, values, W, n, dp) {
-    if (n === 0 || W === 0) return 0;
-
-    if (dp[n][W] !== -1) return dp[n][W];
-
-    if (weights[n - 1] > W) {
-        dp[n][W] = knapsack01Memo(weights, values, W, n - 1, dp);
-    } else {
-        dp[n][W] = Math.max(
-            values[n - 1] + knapsack01Memo(weights, values, W - weights[n - 1], n - 1, dp),
-            knapsack01Memo(weights, values, W, n - 1, dp)
-        );
+function knapsack(W, val, wt) {
+    let n = wt.length
+    let dp = new Array(n+1).fill(null).map(() => new Array(W+1).fill(-1))
+    
+    function helper(n, W){
+        if(n === 0 || W === 0) return 0
+        if(dp[n][W] != -1){
+            return dp[n][W]
+        }
+        if(W >= wt[n-1]){
+            dp[n][W] = Math.max((val[n-1] + helper(n-1, W-wt[n-1])), 
+            helper(n-1,W))
+        }else{
+            dp[n][W] = helper(n-1, W)
+        }
+        return dp[n][W]
     }
-
-    return dp[n][W];
-}
+    return helper(n,W)
+        
+    }
 
 // top down approach 
 for (let i = 1; i <= n; i++) {
