@@ -1,5 +1,5 @@
 
-// inteerative
+// interative
 function dfsIterative(start) {
     const stack = [start];
     const visited = new Set();
@@ -17,3 +17,4 @@ function dfsIterative(start) {
     }
   }
   
+  // recursion
