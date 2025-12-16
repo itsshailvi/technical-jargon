@@ -30,3 +30,42 @@ var isBipartite = function(graph) {
     return true;
 };
 
+// dfs
+
+
+var isBipartite = function(graph) {
+    const n = graph.length;
+    const color = Array(n).fill(-1); // -1 = uncolored
+
+    // Helper DFS function
+    function dfs(node, c) {
+        if (color[node] !== -1) {
+            // If already colored, check if it matches the required color
+            return color[node] === c;
+        }
+
+        // Color the node
+        color[node] = c;
+
+        // Explore all neighbors
+        for (let neighbor of graph[node]) {
+            if (!dfs(neighbor, 1 - c)) { // Alternate color
+                return false; // If the neighbor cannot be colored, return false
+            }
+        }
+
+        return true;
+    }
+
+    // Try coloring all nodes, since the graph might be disconnected
+    for (let i = 0; i < n; i++) {
+        if (color[i] === -1) { // If the node is uncolored
+            if (!dfs(i, 0)) { // Start DFS with color 0
+                return false; // If the graph is not bipartite
+            }
+        }
+    }
+
+    return true; // Graph is bipartite
+};
+

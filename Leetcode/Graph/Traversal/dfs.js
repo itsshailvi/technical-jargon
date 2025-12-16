@@ -17,7 +17,8 @@ function dfsIterative(start) {
     }
   }
   
-  // recursion 
+
+  // recursive
   function dfs(graph) {
     const visited = new Set();
     const traversal = [];  // Array to store the DFS traversal
@@ -41,3 +42,4 @@ function dfsIterative(start) {
 
     return traversal;  // Return the traversal list
 }
+  
